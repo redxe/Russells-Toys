@@ -1,0 +1,93 @@
+.analogue-clock {
+    border: 20px solid #333;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    position: relative;
+    padding: 2rem;
+    box-shadow:
+        0 0 0px 4px rgba(0,0,0,0.1),
+        inset 0 0 0 3px #EFEFEF,
+        inset 0 0 10px black,
+        0 0 10px rgba(0,0,0,0.2);
+    margin: auto;
+    background: white url(../assets/clock-face.svg);
+    background-size: cover;
+}
+
+/* Base styles shared by all hands */
+.analogue-clock .hour-hand,
+.analogue-clock .minute-hand,
+.analogue-clock .second-hand {
+  position: absolute;
+  bottom: 50%;
+  left: 50%;
+  transform-origin: bottom;
+  /* center horizontally, then rotate; 90deg offset so 0deg points to 12 */
+  transform: translateX(-50%) rotate(90deg);
+  transition: transform 0.05s cubic-bezier(0.1, 2.7, 0.58, 1);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Individual hand dimensions/colors (replacing .hand.hour/.minute/.second) */
+.analogue-clock .hour-hand {
+  width: 8px;
+  height: 70px;
+  border-radius: 6px;
+  background: #333;
+  z-index: 3;
+}
+
+.analogue-clock .minute-hand {
+  width: 6px;
+  height: 100px;
+  border-radius: 6px;
+  background: #666;
+  z-index: 2;
+}
+
+.analogue-clock .second-hand {
+  width: 2px;
+  height: 120px;
+  border-radius: 6px;
+  background: red;
+  z-index: 1;
+}
+
+/* Center point (replacing .center) */
+.analogue-clock .center-point {
+  width: 16px;
+  height: 16px;
+  background: black;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 50%;
+  z-index: 10;
+}
+
+.analogue-clock .number {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    text-align: center;
+    top: 50%;
+    left: 50%;
+    transform-origin: center;
+    font-weight: bold;
+    font-size: 1.2rem;
+}
+.analogue-clock .number1  { transform: rotate(300deg) translate(120px) rotate(-300deg); }
+.analogue-clock .number2  { transform: rotate(330deg) translate(120px) rotate(-330deg); }
+.analogue-clock .number3  { transform: rotate(0deg)   translate(120px) rotate(0deg); }
+.analogue-clock .number4  { transform: rotate(30deg)  translate(120px) rotate(-30deg); }
+.analogue-clock .number5  { transform: rotate(60deg)  translate(120px) rotate(-60deg); }
+.analogue-clock .number6  { transform: rotate(90deg)  translate(120px) rotate(-90deg); }
+.analogue-clock .number7  { transform: rotate(120deg) translate(120px) rotate(-120deg); }
+.analogue-clock .number8  { transform: rotate(150deg) translate(120px) rotate(-150deg); }
+.analogue-clock .number9  { transform: rotate(180deg) translate(120px) rotate(-180deg); }
+.analogue-clock .number10 { transform: rotate(210deg) translate(120px) rotate(-210deg); }
+.analogue-clock .number11 { transform: rotate(240deg) translate(120px) rotate(-240deg); }
+.analogue-clock .number12 { transform: rotate(270deg) translate(120px) rotate(-270deg); }

@@ -1,0 +1,193 @@
+.soundboard {
+    position: relative;
+    float: left;
+    height: 850px;
+    width: 400px;
+    background: linear-gradient(to bottom, 
+        violet, 
+        indigo, 
+        blue, 
+        green, 
+        yellow, 
+        orange, 
+        red);
+    border-radius: 20px;
+    position: relative;
+}
+
+.speaker {
+    position: absolute;
+    height: 150px;
+    width: 150px;
+    background: #00000055;
+    border-radius: 50%;
+    top: 40px;
+    left: 40%;
+    transform: translateX(-50%);
+}
+
+/* Add dots around the speaker */
+.speaker::before {
+    content: "";
+    position: absolute;
+    height: 180px;
+    width: 180px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border: 5px dotted #00000055;
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+/* The crown goes inside of the speaker */
+.crown {
+    position: absolute;
+    height: 120px;
+    width: 120px;
+    left: 25%;
+    top: 55px;
+    filter: invert(80%) sepia(50%) hue-rotate(210deg) saturate(1000%) brightness(1.2) drop-shadow(0 0 5px #00000055);
+}
+
+.right-border {
+    position: absolute;
+    height: 100%;
+    width: 50px;
+    background: #00000055;
+    top: 0;
+    right: 0;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+}
+
+/* The buttons class contains 10 buttons that should be arranged in 2 columns */
+
+.buttons {
+    position: absolute;
+    height: 600px;
+    width: 300px;
+    top: 220px;
+    left: 40%;
+    transform: translateX(-50%);
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(5, 1fr);
+    gap: 20px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.buttons button {
+    background: #00000055;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px #00000055;
+    font-size: 1.5rem;
+    color: white;
+    cursor: pointer;
+    transition: background 0.3s, transform 0.1s;
+}
+
+.buttons button:hover {
+    transform: scale(1.05);
+}
+
+.buttons button:active {
+    transform: scale(0.9);
+}
+
+/* Spin the crown while audio plays */
+@keyframes crown-spin {
+    from { transform: rotate(0deg) scale(var(--crown-scale, 1)); }
+    to   { transform: rotate(360deg) scale(var(--crown-scale, 1)); }
+}
+
+/* default scale variable */
+.crown {
+    --crown-scale: 1;
+}
+
+.crown.spinning {
+    animation: crown-spin 1.2s linear infinite;
+    will-change: transform;
+}
+
+/* When spinning, adjust scale via CSS variable so rotation continues on hover/active */
+.crown.spinning:hover {
+    --crown-scale: 1.10;
+}
+.crown.spinning:active {
+    --crown-scale: 0.9;
+}
+
+/* When not spinning, use the original transform-based hover/active */
+.crown:not(.spinning):hover {
+    transform: scale(1.10);
+}
+.crown:not(.spinning):active {
+    transform: scale(0.9);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .crown.spinning { animation: none; }
+}
+
+
+.right-pane {
+    position: relative;
+    float: left;
+    width: 350px;
+    height: 850px;
+    /* background-color: green; */
+}
+
+.right-pane div {
+    margin: 10px;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 6px #00000055;
+    cursor: pointer;
+    transition: transform 0.3s;
+}
+
+.hello-kitty-container {
+    background-color: pink;
+    height: 200px;
+    width: 100%;
+}
+
+.kpop-demon-hunter-container {
+    background-color: purple;
+    height: 200px;
+    width: 100%;
+}
+
+.jack-the-pumpkin-king-container {
+    background-color: black;
+    height: 200px;
+    width: 100%;
+}
+
+.thomas-the-train-container {
+    background-color: rgb(92, 92, 238);
+    height: 200px;
+    width: 100%;
+}
+
+.right-pane-img {
+    height: 100%;
+    width: auto;
+    display: block;
+    margin: 0 auto;
+}
+
+.right-pane-img:hover {
+    transform: scale(1.05);
+    transition: transform 0.3s;
+}
+
+.right-pane-img:active {
+    transform: scale(0.9);
+    transition: transform 0.1s;
+}
