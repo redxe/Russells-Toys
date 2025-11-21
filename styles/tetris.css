@@ -1,0 +1,187 @@
+/* ...existing code... */
+:root{
+  --tetris-bg:#0f1724;
+  --tetris-panel:#0b1220;
+  --tetris-board:#111827;
+  --tetris-grid:rgba(255,255,255,0.06);
+  --tetris-text:#dbeafe;
+  --tetris-ghost:rgba(255,255,255,0.28);
+  --tetris-outline:rgba(0,0,0,0.24);
+
+  /* Piece fallback colors (can be overridden by theme) */
+  --piece-I:#00f0f0;
+  --piece-J:#4169e1;
+  --piece-L:#f0a000;
+  --piece-O:#f0e000;
+  --piece-S:#00d070;
+  --piece-Z:#e14b4b;
+  --piece-T:#b060f0;
+}
+
+html,body{
+  height:100%;
+  margin:0;
+  background: linear-gradient(180deg, var(--tetris-bg), #071026);
+  color:var(--tetris-text);
+  font-family: Inter, ui-sans-serif, system-ui, Segoe UI, Roboto, Helvetica, Arial, sans-serif;
+}
+
+.tetris-app{
+  display:flex;
+  gap:18px;
+  padding:18px;
+  box-sizing:border-box;
+}
+
+.tetris-app, .left{
+  position: relative;
+}
+
+.left{
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+
+  /* keep the image clipped to the left column */
+  overflow: hidden;
+}
+
+.board-wrap{
+  background:var(--tetris-board);
+  border-radius:10px;
+  padding:10px;
+  box-shadow:0 6px 20px rgba(2,6,23,.6);
+  width: calc(300px + 20px);
+}
+
+canvas#board{
+  display:block;
+  background:var(--tetris-board);
+  border-radius:6px;
+}
+
+.controls{
+  display:flex;
+  gap:8px;
+}
+button{
+  background: transparent;
+  border:1px solid rgba(255,255,255,0.08);
+  color:inherit;
+  padding:8px 10px;
+  border-radius:8px;
+  cursor:pointer;
+}
+
+.hint{
+  color:#9aa4b2;
+  font-size:12px;
+}
+
+.right{
+  width:320px;
+  display:flex;
+  flex-direction:column;
+  gap:10px;
+}
+
+.panel{
+  background: linear-gradient(180deg, var(--tetris-panel), #07111a);
+  border-radius:10px;
+  padding:12px;
+  box-shadow:0 6px 20px rgba(2,6,23,.6);
+}
+
+.stat{
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:6px 0;
+}
+.label{
+  font-size:12px;
+  color:#9aa4b2;
+  margin-bottom:6px;
+}
+.row{
+  display:flex;
+  gap:8px;
+  align-items:center;
+  margin:6px 0;
+}
+.meta.small{ font-size:12px; color:#9aa4b2 }
+
+@media (max-width:900px){
+  .tetris-app{ flex-direction:column }
+  .right{ width:100% }
+}
+
+/* Built-in theme presets via body[data-theme] */
+body[data-theme="neon"]{
+  --tetris-bg:#0b0f1a;
+  --tetris-panel:#0c1120;
+  --tetris-board:#0a0f1a;
+  --tetris-grid:rgba(96,165,250,0.18);
+  --tetris-text:#bfe1ff;
+  --tetris-ghost:rgba(96,165,250,0.28);
+
+  --piece-I:#22d3ee; /* cyan */
+  --piece-J:#60a5fa; /* blue */
+  --piece-L:#f59e0b; /* amber */
+  --piece-O:#fde047; /* yellow */
+  --piece-S:#34d399; /* green */
+  --piece-Z:#fb7185; /* rose */
+  --piece-T:#a78bfa; /* violet */
+}
+
+body[data-theme="pastel"]{
+  --tetris-bg:#1a1525;
+  --tetris-panel:#171223;
+  --tetris-board:#1d1730;
+  --tetris-grid:rgba(255,255,255,0.08);
+  --tetris-text:#f6f5ff;
+
+  --piece-I:#a0e7e5;
+  --piece-J:#b4c5ff;
+  --piece-L:#ffd6a5;
+  --piece-O:#fff5a5;
+  --piece-S:#c1fba4;
+  --piece-Z:#ffadad;
+  --piece-T:#cdb4db;
+}
+
+body[data-theme="mono"]{
+  --tetris-bg:#0f0f12;
+  --tetris-panel:#101016;
+  --tetris-board:#141420;
+  --tetris-grid:rgba(255,255,255,0.04);
+  --tetris-text:#e6e6f0;
+
+  --piece-I:#cdd6f4;
+  --piece-J:#b4befe;
+  --piece-L:#fab387;
+  --piece-O:#f9e2af;
+  --piece-S:#a6e3a1;
+  --piece-Z:#f38ba8;
+  --piece-T:#cba6f7;
+}
+
+/* place the image between the background and the game */
+#jack-image {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(2,6,23,.6);
+  z-index: 0;           /* was -1; ensure it's above the page bg */
+  pointer-events: none;
+  left: 38%;      /* shift left to center the figure */
+}
+
+/* ensure game UI sits above the image */
+.left > *:not(#jack-image){
+  position: relative;
+  z-index: 1;
+}

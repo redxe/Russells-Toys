@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <title>Themed Tetris</title>
+    <link rel="stylesheet" href="/styles/tetris.css">
+</head>
+
+<body>
+    <div class="tetris-app">
+        <div class="left">
+            <!-- <img id="jack-image" src="/assets/jack-skellington.png" alt=""> -->
+            <div class="board-wrap">
+                <canvas id="board" width="300" height="600" aria-label="Tetris board"></canvas>
+            </div>
+            <div class="controls">
+                <button id="startBtn" title="Start/Resume">Start</button>
+                <button id="pauseBtn" title="Pause">Pause</button>
+                <button id="resetBtn" title="Reset">Reset</button>
+            </div>
+            <div class="hint meta">
+                Controls: ← → move, ↓ soft drop, Space hard drop, Z/X rotate, C hold, P pause
+            </div>
+        </div>
+
+        <aside class="right">
+            <div class="panel">
+                <div class="stat"><span>Score</span><strong id="score">0</strong></div>
+                <div class="stat"><span>Level</span><strong id="level">1</strong></div>
+                <div class="stat"><span>Lines</span><strong id="lines">0</strong></div>
+                <div class="stat"><span>Best</span><strong id="best">0</strong></div>
+            </div>
+
+            <div class="panel">
+                <div class="label">Next</div>
+                <canvas id="next" width="120" height="120"></canvas>
+            </div>
+
+            <div class="panel">
+                <div class="label">Hold</div>
+                <canvas id="hold" width="120" height="120"></canvas>
+            </div>
+
+            <div class="panel">
+                <div class="label">Theme</div>
+                <div class="row">
+                    <select id="themeSelect" title="Built-in theme">
+                        <option value="">classic</option>
+                        <option value="neon">neon</option>
+                        <option value="pastel">pastel</option>
+                        <option value="mono">mono</option>
+                    </select>
+                    <button id="applyThemeBtn" title="Apply selection">Apply</button>
+                </div>
+                <div class="row">
+                    <input id="themeFile" type="file" accept="application/json" />
+                    <button id="loadThemeBtn" title="Load JSON theme">Load JSON</button>
+                </div>
+                <div class="meta small">
+                    Also supported: set window.TETRIS_THEME before the script, body[data-theme], or ?theme=neon
+                </div>
+            </div>
+        </aside>
+    </div>
+
+    <script>
+        // Optional: define a quick override before tetris.js loads
+        // window.TETRIS_THEME = { name:'custom', pieces:{ T:'#ff66cc' }, colors:{ board:'#10131a' } };
+    </script>
+    <script src="/scripts/tetris.js"></script>
+</body>
+
+</html>
