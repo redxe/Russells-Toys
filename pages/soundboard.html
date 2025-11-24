@@ -3,13 +3,20 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="/styles/soundboard.css">
+    <link rel="stylesheet" href="/styles/soundboard.css?v=1.1">
 </head>
 <body>
     <div class="soundboard">
         <div class="speaker"></div>
         <img class="crown" src="https://cdn-icons-png.flaticon.com/512/51/51338.png" alt="">
         <div class="right-border"></div>
+
+        <!-- Tab selectors protruding from right side -->
+        <div class="tabs">
+            <button class="sound-tab active" data-set="set1">K-Pop</button>
+            <button class="sound-tab" data-set="set2">Set 2</button>
+            <button class="sound-tab" data-set="set3">Set 3</button>
+        </div>
 
         <!-- There should be ten buttons, 5 in each of the two columns -->
         <div class="buttons">
@@ -42,5 +49,5 @@
     </div>
     <!-- Add Hello Kitty and Kpop Demon Hunter Here -->
 </body>
-<script src="/scripts/soundboard.js"></script>
+<script src="/scripts/soundboard.js?v=1.1"></script>
 </html>

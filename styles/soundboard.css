@@ -13,6 +13,7 @@
         red);
     border-radius: 20px;
     position: relative;
+    z-index: 2;
 }
 
 .speaker {
@@ -59,7 +60,53 @@
     right: 0;
     border-top-right-radius: 7px;
     border-bottom-right-radius: 7px;
+    z-index: 3;
 }
+
+/* Tabs protruding from right side like book tabs */
+.tabs {
+    position: absolute;
+    top: 100px; /* align roughly with buttons top */
+    right: 0;
+    width: 0; /* container itself not visible, children protrude */
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    pointer-events: none; /* allow buttons only */
+    z-index: 0;
+}
+
+.sound-tab {
+    pointer-events: auto;
+    position: relative;
+    right: 0px; /* protrude out of board */
+    width: 120px;
+    padding: 10px 14px;
+    background: linear-gradient(135deg,#ffffffcc,#e5e5e5cc);
+    border: 2px solid #ffffff55;
+    border-left: none;
+    border-radius: 0 12px 12px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #222;
+    cursor: pointer;
+    box-shadow: 0 4px 6px #00000055;
+    transition: background 0.25s, transform 0.15s;
+    backdrop-filter: blur(3px);
+}
+
+.sound-tab:hover { transform: translateX(4px); }
+.sound-tab:active { transform: translateX(0) scale(0.95); }
+
+.sound-tab.active {
+    background: linear-gradient(135deg,#ffd54f,#ffb300);
+    color: #000;
+    box-shadow: 0 4px 10px #00000088;
+}
+
+/* Slight color variations for non-active tabs */
+.sound-tab:not(.active):nth-child(2) { background: linear-gradient(135deg,#d0f0ffcc,#b2e6ffcc); }
+.sound-tab:not(.active):nth-child(3) { background: linear-gradient(135deg,#e7d0ffcc,#d5b2ffcc); }
 
 /* The buttons class contains 10 buttons that should be arranged in 2 columns */
 
@@ -139,7 +186,9 @@
     float: left;
     width: 350px;
     height: 850px;
+    margin-left: 120px;
     /* background-color: green; */
+    z-index: 0;
 }
 
 .right-pane div {
