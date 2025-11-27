@@ -1,0 +1,79 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/styles/book.css?v=1.0">
+</head>
+<body>
+    <div class="book-wrapper">
+        <div class="book" id="book">
+            <!-- Front Cover -->
+            <div class="page cover front" data-page="cover-front">
+                <div class="face front-face">
+                    <h1>My Flip Book</h1>
+                    <p>Click the right edge to begin</p>
+                </div>
+                <div class="face back-face"></div>
+            </div>
+            <!-- Page 1 -->
+            <div class="page" data-page="1">
+                <div class="face front-face">
+                    <h2>Page 1</h2>
+                    <p>Welcome to the animated book.</p>
+                </div>
+                <div class="face back-face">
+                    <h2>Back 1</h2>
+                    <p>The reverse of page 1.</p>
+                </div>
+            </div>
+            <!-- Page 2 -->
+            <div class="page" data-page="2">
+                <div class="face front-face">
+                    <h2>Page 2</h2>
+                    <p>Pages flip using CSS 3D transforms.</p>
+                </div>
+                <div class="face back-face">
+                    <h2>Back 2</h2>
+                    <p>You can add any content here.</p>
+                </div>
+            </div>
+            <!-- Page 3 -->
+            <div class="page" data-page="3">
+                <div class="face front-face">
+                    <h2>Page 3</h2>
+                    <p>Keyboard arrows also navigate.</p>
+                </div>
+                <div class="face back-face">
+                    <h2>Back 3</h2>
+                    <p>Try flipping back and forth.</p>
+                </div>
+            </div>
+            <!-- Page 4 -->
+            <div class="page" data-page="4">
+                <div class="face front-face">
+                    <h2>Page 4</h2>
+                    <p>Customize colors, size, and content.</p>
+                </div>
+                <div class="face back-face">
+                    <h2>Back 4</h2>
+                    <p>Nearly finished the demo.</p>
+                </div>
+            </div>
+            <!-- Back Cover -->
+            <div class="page cover back" data-page="cover-back">
+                <div class="face front-face">
+                    <h1>The End</h1>
+                    <p>Click left edge to go back.</p>
+                </div>
+                <div class="face back-face"></div>
+            </div>
+        </div>
+        <div class="book-controls">
+            <button id="prevBtn" aria-label="Previous page">Prev</button>
+            <button id="nextBtn" aria-label="Next page">Next</button>
+        </div>
+    </div>
+</body>
+<script src="/scripts/book.js?v=1.0"></script>
+</html>
