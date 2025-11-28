@@ -41,8 +41,8 @@
         }
     ],
     "set2": [{
-            "bg": null,
-            "sound": null
+            "bg": "https://cdn.shopify.com/s/files/1/0603/5439/6408/files/fishcircle_2000x952_09cd941e-e1e9-4ed6-9b93-a94166e9c37f.webp?v=1653509090",
+            "sound": "https://www.myinstants.com/media/sounds/copy-of-ocean-wave-1-online-audio-converter.mp3"
         },
         {
             "bg": null,
@@ -50,7 +50,7 @@
         },
         {
             "bg": "https://picsum.photos/seed/cat1/300/300",
-            "sound": null
+            "sound": "https://www.myinstants.com/media/sounds/yuno-miles-fast-rap.mp3"
         },
         {
             "bg": "https://picsum.photos/seed/cat2/300/300",
@@ -82,8 +82,8 @@
         }
     ],
     "set3": [{
-            "bg": "https://picsum.photos/seed/planet1/300/300",
-            "sound": null
+            "bg": "https://cdn.britannica.com/37/75637-050-B425E8F1/Killer-whale.jpg",
+            "sound": "https://www.myinstants.com/media/sounds/whale-js.mp3"
         },
         {
             "bg": "https://picsum.photos/seed/planet2/300/300",
